@@ -19,7 +19,7 @@ public class Product {
     private int quantity;
 
     //Lado Dono
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "cart_id")
     private Cart myCart;
 

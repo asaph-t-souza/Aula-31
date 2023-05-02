@@ -11,6 +11,8 @@ import com.t3.onetomanybi.entity.Product;
 import com.t3.onetomanybi.repository.CartRepository;
 import com.t3.onetomanybi.repository.ProductRepository;
 
+import jakarta.transaction.Transactional;
+
 @Component
 public class DataLoader implements CommandLineRunner {
 
@@ -21,12 +23,16 @@ public class DataLoader implements CommandLineRunner {
     private ProductRepository productRepository;
 
     @Override
+    @Transactional
     public void run(String... args) throws Exception {
-        createCart();
-        // retrieveCart(1L);
-        // retrieveProduct(1L);
-        // retrieveCartByColor("VERDE");
-        retrieveProductByPrice(5);
+        // System.out.println("Get a product with id 1");
+        // Product product = productRepository.findById(1L).get();
+        // System.out.println(product.toString());
+
+        // System.out.println(product.getMyCart().toString());
+
+        retrieveCart(1L);
+
     }
 
     public void createCart() {
